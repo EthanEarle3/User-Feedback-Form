@@ -7,11 +7,36 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>User Feedback Form</h1>
-    <input type="text" id="name" placeholder="Your Name">
-    <input type="email" id="email" placeholder="Your Email">
-    <input type="text" id="comments" placeholder="Your Comments">
-    <button id="submit">Submit</button>
+    <div class="form-container">
+        
+        <h1>User Feedback Form</h1>
+        <form id="feedbackForm">
+            <div class="input-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <div class="tooltip" id="nameTooltip">Please enter your full name.</div>
+                <span class="char-count" id="nameCharCount">0/200</span>
+            </div>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <span class="char-count" id="emailCharCount">0/200</span>
+            </div>
+            <div class="input-group">
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" placeholder="Your Comments" required></textarea>
+                <div class="tooltip" id="commentsTooltip">Please provide your feedback or comments.</div>
+                <span class="char-count" id="commentsCharCount">0/500</span>
+            </div>
+            <button type="submit" id="submit">Submit</button>
+            <div id="responseMessage"></div>
+        </form>
+    </div>
+    <div id="feedback-display">
+        <h2>User Feedback</h2>
+    <ul id="feedbackList"></ul>
+    </div>
+    
 
     <script src="cp_1.js"></script>
 </body>

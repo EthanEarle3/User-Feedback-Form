@@ -38,3 +38,53 @@ document.addEventListener('DOMContentLoaded', function() {
         form.reset();
     });
 });
+background.Container.addEventListener('click', (event) => {
+    if (event.target === background.Container) {
+        console.log('Background container clicked');
+    } else {
+        event.stopPropagation();
+    }
+    form.addEventListener('mouseover', (event) => {
+        event.stopPropagation();
+        const tooltip = event.target.closest('.form-group')?.querySelector('.tooltip');
+        if (tooltip) tooltip.style.display = 'block';
+    });
+    form.addEventListener('mouseout', (event) => {
+        event.stopPropagation();
+        const tooltip = event.target.closest('.form-group')?.querySelector('.tooltip');
+        if (tooltip) tooltip.style.display = 'none';
+    });
+});
+form.addEventListener('input', (event) => {
+    event.stopPropagation();
+    if (event.target.id === 'comments') {
+        const maxLength = 250;
+        const currentLength = event.target.value.length;
+        document.getElementById('char-count').textContent = `${maxLength - currentLength}`;
+    }
+});
+
+document.querySelectorAll('.error').forEach(span.textContent = '');
+let isFormValid = true;
+if (nameInput.value.trim() === '') {
+    document.getElementById('name-error').textContent = 'Name is required.';
+    isFormValid = false;
+}
+if (emailInput.value.trim() === '') {
+    document.getElementById('email-error').textContent = 'Email is required.';
+    isFormValid = false;
+} else if (!validateEmail(emailInput.value.trim())) {
+    document.getElementById('email-error').textContent = 'Invalid email format.';
+    isFormValid = false;
+}
+if (commentsInput.value.trim() === '') {
+    document.getElementById('comments-error').textContent = 'Comments are required.';
+    isFormValid = false;
+}
+if (!isFormValid) {
+    const newEntry = document.createElement('div');
+    newEntry.innerHTML = '<strong>${nameInput.value.trim()}</strong>: ${commentsInput.value.trim()}';
+    document.getElementById('feedback-list').appendChild(newEntry);
+    form.reset();
+    document.getElementById('char-count').textContent = '250';
+}
