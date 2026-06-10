@@ -2,6 +2,9 @@ const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
 const commentsInput = document.getElementById('comments');
 const submitButton = document.getElementById('submit');
+const form = document.getElementById('feedback-form');
+const background = document.getElementById('background');
+const charCount = document.getElementById('char-count');
 
 submitButton.addEventListener('click', function(event) {
     event.preventDefault();
@@ -60,11 +63,11 @@ form.addEventListener('input', (event) => {
     if (event.target.id === 'comments') {
         const maxLength = 250;
         const currentLength = event.target.value.length;
-        document.getElementById('char-count').textContent = `${maxLength - currentLength}`;
+        document.getElementById('char-count').textContent = maxLength - currentLength;
     }
 });
 
-document.querySelectorAll('.error').forEach(span.textContent = '');
+document.querySelectorAll('.error').forEach(span => span.textContent = '');
 let isFormValid = true;
 if (nameInput.value.trim() === '') {
     document.getElementById('name-error').textContent = 'Name is required.';
@@ -88,3 +91,7 @@ if (!isFormValid) {
     form.reset();
     document.getElementById('char-count').textContent = '250';
 }
+document.getElementById('char-count').textContent = '250';
+
+
+
