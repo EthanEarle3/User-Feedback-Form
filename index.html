@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Feedback Form</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="form-container">
@@ -15,18 +15,19 @@
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Your Name" required>
                 <div class="tooltip" id="nameTooltip">Please enter your full name.</div>
-                <span class="char-count" id="nameCharCount">0/200</span>
+                <span class="namecharCount" id="nameCharCount">0/200</span>
             </div>
             <div class="input-group">
                 <label for="email">Email:</label>
+                <div class="tooltip" id="emailTooltip">Please enter a valid email address.</div>
                 <input type="email" id="email" name="email" placeholder="Your Email" required>
-                <span class="char-count" id="emailCharCount">0/200</span>
+                <span class="emailcharCount" id="emailCharCount">0/200</span>
             </div>
             <div class="input-group">
                 <label for="comments">Comments:</label>
                 <textarea id="comments" name="comments" placeholder="Your Comments" required></textarea>
                 <div class="tooltip" id="commentsTooltip">Please provide your feedback or comments.</div>
-                <span class="char-count" id="commentsCharCount">0/500</span>
+                <span class="commentcharCount" id="commentCharCount">0/500</span>
             </div>
             <button type="submit" id="submit">Submit</button>
             <div id="responseMessage"></div>
