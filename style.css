@@ -18,3 +18,46 @@ form {
 .input-group {
     margin-bottom: 15px;
 }           
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+input[type="text"],
+input[type="email"],    
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #218838;
+}
+.tooltip {  
+    display: none;
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+.input-group:hover .tooltip {
+    display: block;
+    margin-top: 2px;
+}
+.charCount {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
