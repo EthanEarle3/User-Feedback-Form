@@ -57,7 +57,23 @@ function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
 }
-
+background.Container.addEventListener('click', (event) => {
+    if (event.target === background.Container) {
+        console.log('Background container clicked');
+    } else {
+        event.stopPropagation();
+    }
+    form.addEventListener('mouseover', (event) => {
+        event.stopPropagation();
+        const tooltip = event.target.closest('.form-group')?.querySelector('.tooltip');
+        if (tooltip) tooltip.style.display = 'block';
+    });
+    form.addEventListener('mouseout', (event) => {
+        event.stopPropagation();
+        const tooltip = event.target.closest('.form-group')?.querySelector('.tooltip');
+        if (tooltip) tooltip.style.display = 'none';
+    });
+});
 document.querySelectorAll('.error').forEach(span => span.textContent = '');
 let isFormValid = true;
 if (nameInput.value.trim() === '') {
@@ -98,23 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         alert('Form submitted successfully!');
         form.reset();
-    });
-});
-background.Container.addEventListener('click', (event) => {
-    if (event.target === background.Container) {
-        console.log('Background container clicked');
-    } else {
-        event.stopPropagation();
-    }
-    form.addEventListener('mouseover', (event) => {
-        event.stopPropagation();
-        const tooltip = event.target.closest('.form-group')?.querySelector('.tooltip');
-        if (tooltip) tooltip.style.display = 'block';
-    });
-    form.addEventListener('mouseout', (event) => {
-        event.stopPropagation();
-        const tooltip = event.target.closest('.form-group')?.querySelector('.tooltip');
-        if (tooltip) tooltip.style.display = 'none';
     });
 });
 
