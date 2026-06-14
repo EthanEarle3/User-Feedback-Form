@@ -77,7 +77,7 @@ if (commentsInput.value.trim() === '') {
 }
 if (commentsInput.value.trim().length > 500) {
     document.getElementById('comments-error').textContent = 'Comments cannot exceed 500 characters.';
-    isFormValid = false;
+    isFormValid = false; }
     if (emailInput.value.trim().length > 200) {
         document.getElementById('email-error').textContent = 'Email cannot exceed 200 characters.';
         isFormValid = false;
@@ -86,7 +86,6 @@ if (commentsInput.value.trim().length > 500) {
         document.getElementById('name-error').textContent = 'Name cannot exceed 200 characters.';
         isFormValid = false;
     }
-}
 if (!isFormValid) {
     const newEntry = document.createElement('div');
     newEntry.innerHTML = '<strong>${nameInput.value.trim()}</strong>: ${commentsInput.value.trim()}';
